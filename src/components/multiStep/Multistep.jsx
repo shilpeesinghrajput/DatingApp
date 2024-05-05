@@ -1,9 +1,10 @@
 import React from 'react';
-import { useForm, FormProvider, useFormContext } from 'react-hook-form';
+import { useForm, FormProvider } from 'react-hook-form';
 import "./multistep.css"
+import { Link } from 'react-router-dom';
 
 function StepOne() {
-  const { register } = useFormContext(); // retrieve form context
+   // retrieve form context
 
 
   const toggleArrow = () => {
@@ -51,7 +52,6 @@ function StepOne() {
       </div>
   );
 }
-
 function StepTwo() {
 
 
@@ -64,7 +64,7 @@ function StepTwo() {
           element.classList.add('active');
         }
       };
-  const { register } = useFormContext();
+  
   return (
     <div>
           <h1 className= 'text-center text-[30px] mt-10'>What are you looking for?</h1>
@@ -144,7 +144,7 @@ function StepTwo() {
 
 function StepThree() {
 
-  const { register } = useFormContext();
+  
   return (
     <div>
           <h1 className= 'text-center text-[30px] mt-10'>Aussehen und Erscheinung</h1>
@@ -158,7 +158,7 @@ function StepThree() {
              
               </div>
               <div className='grid grid-cols-3 gap-x-10 gap-6 mt-10 mb-6'>
-              <div class="col-xs-6 col-sm-4" _mstvisible="4">
+              <div className="col-xs-6 col-sm-4" _mstvisible="4">
 										<div class="form-group select flex flex-col gap-2 " _mstvisible="5"><label class="control-label big font-bold" for="height" _msttexthash="45877" _msthash="37" _mstvisible="6">Size</label><select name="height" class="form-control valid" _mstvisible="6" aria-invalid="false"><option value="" _msttexthash="412880" _msthash="38" _mstvisible="7">--- please select ---</option>
 <option value="< 150" _msttexthash="54158" _msthash="39" _mstvisible="7">&lt; 150 cm</option>
 <option value="150" _msttexthash="44044" _msthash="40" _mstvisible="7">150 cm</option>
@@ -352,7 +352,7 @@ function StepThree() {
 
 function StepFour() {
 
-  const { register } = useFormContext();
+  
   return (
     <div>
           <h1 className= 'text-center text-[30px] mt-10'>Search radius</h1>
@@ -394,9 +394,9 @@ function StepFour() {
 
 function StepFive() {
 
-    const { register } = useFormContext();
+    
     return (
-      <div>
+      <div className='h-[650px]'>
             <h1 className= 'text-center text-[30px] mt-10'>Personal Information</h1>
   
           <div className='flex flex-col items-center justify-center '>
@@ -512,11 +512,18 @@ function StepFive() {
   
   </div>
 
-  </div>
+
+
   
   </div>
 
-        
+  <div className="flex items-center  justify-center">
+        <Link to="/finish"> <button  className="whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-12 px-16 py-2 mt-8 bg-green-500 text-white">
+            CONTINUE
+          </button>
+          </Link> 
+          </div>
+  </div>
   
        
     );
@@ -525,9 +532,9 @@ function StepFive() {
 
   function StepSix() {
 
-    const { register } = useFormContext();
+    
     return (
-      <div>
+      <div className='h-full'>
             <h1 className= 'text-center text-[30px] mt-10'>Almost Finished....</h1>
   
           <div className='flex flex-col items-center justify-center '>
@@ -547,19 +554,24 @@ function StepFive() {
   </div>
   
   </div>
-  <div class="col-xs-6 col-sm-6" _mstvisible="4">
-                                          <div class="form-group select flex flex-col gap-2 " _mstvisible="5"><label class="control-label big font-bold" for="height" _msttexthash="45877" _msthash="37" _mstvisible="6">UserName</label>
+  <div className="col-xs-6 col-sm-6" _mstvisible="4">
+                                          <div className="form-group select flex flex-col gap-2 " _mstvisible="5"><label class="control-label big font-bold" for="height" _msttexthash="45877" _msthash="37" _mstvisible="6">UserName</label>
                                          
   
-                                          <input type='text' placeholder='Enter username' name="height" class="form-controld valid" _mstvisible="6" aria-invalid="false" />
+                                          <input type='text' placeholder='Enter username' name="height" className="form-controld valid" _mstvisible="6" aria-invalid="false" />
                                           
                                          </div>
   
   </div>
   </div>
   
-  
+ 
           </div>
+          <div className="flex items-center  justify-center mb-[90px]">
+         <button className="whitespace-nowrap rounded-lg text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-12 px-16 py-2 mt-8 bg-green-500 text-white">
+             Submit
+           </button>
+           </div>
   </div>
   
        
@@ -613,4 +625,4 @@ function MultiStepForm() {
   );
 }
 
-export default MultiStepForm;
+export {StepOne,StepTwo,StepThree,StepFour,StepFive,StepSix,MultiStepForm};
